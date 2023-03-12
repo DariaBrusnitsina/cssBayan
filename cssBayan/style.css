@@ -1,5 +1,6 @@
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;800&display=swap');
+
 /* COLORS */
 :root {
   --bg-color: rgb(170, 169, 169);
@@ -51,7 +52,6 @@ body {
 }
 
 /* FONTS */
-
 h1 {
   font-weight: 800;
   font-size: 2.5rem;
@@ -59,7 +59,6 @@ h1 {
 
 p {
   font-size: 1.3rem;
-  margin-top: 10px;;
 }
 
 /* VISIBLE CONTENT */
@@ -75,7 +74,7 @@ label{
   display: flex;
   justify-content: space-between;
   height: 3.125rem;
-  padding: 0 1.25rem;
+  padding:  1rem 1.25rem;
   border-top: 0.063rem solid #595757;
   cursor: pointer;
 }
@@ -91,25 +90,24 @@ label{
 }
 
 /* ICON */
-span {
-  display: none;
+.accordion--item__icon {
+  opacity: 0;
+  translate: 1s transform;
   transform: rotate(45deg);
 }
 
-.accordion:hover span {
-  display: block;
+.accordion:hover p {
+  opacity: 1;
 }
 
 label:hover > .accordion--item__icon {
-  display: block;
-  transform: rotate(0deg);
-  color: #791515;
+  opacity: 1;
+  transform: rotate(90deg) ;
 }
 
-.accordion--item__input:checked  .accordion--item__icon {
-  display: block;
-  transform: rotate(0deg) !important;
-  color: #9129e0 !important;
+.accordion--item__input:checked + label .accordion--item__icon {
+  opacity: 1;
+  transform: rotate(90deg);
 }
 
 
@@ -125,7 +123,6 @@ label:hover ~ .accordion--item__content {
 }
 
 /* media */
-
 @media (max-width: 820px) {
 
   h1 {
