@@ -1,0 +1,162 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;800&display=swap');
+
+/* COLORS */
+:root {
+  --bg-color: rgb(170, 169, 169);
+  --accent-color: #2c2c2c;
+  --soft-color: rgb(184, 183, 183);
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* СUSTOM SCROLLBAR */
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color:  var(--soft-color);
+}
+
+/* BASE */
+html, body {
+  font-family: 'Rubik', sans-serif;}
+
+body {
+  background-color: #2c2c2c;
+  opacity: 1;
+  background-image:  linear-gradient(135deg, #ab1919 25%, transparent 25%), linear-gradient(225deg, #ab1919 25%, transparent 25%), linear-gradient(45deg, #ab1919 25%, transparent 25%), linear-gradient(315deg, #ab1919 25%, #2c2c2c 25%);
+  background-position: 1.313rem 0, 1.313rem 0, 0 0, 0 0;
+  background-size: 2.625rem 2.625rem;
+  background-repeat: repeat;
+
+  color: var(--accent-color);
+  padding: 2.5rem;
+}
+
+.container {
+  width: 31.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.25rem;
+  background-color: var(--bg-color);
+}
+
+.accordion {
+  margin-top: 3.125rem;
+}
+
+/* FONTS */
+h1 {
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+/* VISIBLE CONTENT */
+.accordion--item {
+  transform: translateZ(0);
+}
+
+.accordion--item__input {
+  display: none;
+}
+
+label{
+  display: flex;
+  justify-content: space-between;
+  height: 3.125rem;
+  padding:  1rem 1.25rem;
+  border-top: 0.063rem solid #595757;
+  cursor: pointer;
+}
+
+/* HIDDEN CONTENT */
+.accordion--item__content {
+  height: 0;
+  transition: .5s all;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ICON */
+.accordion--item__icon {
+  opacity: 0;
+  translate: 1s transform;
+  transform: rotate(45deg);
+}
+
+.accordion:hover p {
+  opacity: 1;
+}
+
+label:hover > .accordion--item__icon {
+  opacity: 1;
+  transform: rotate(90deg) ;
+}
+
+.accordion:hover .accordion--item__input:checked + label .accordion--item__icon {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+
+/* OPEN IMG*/
+label:hover ~ .accordion--item__content {
+  height: 18.75rem;
+  transition: .5s all;
+
+}
+.accordion--item__input:checked ~ .accordion--item__content {
+  height: 18.75rem;
+  transition: .5s all;
+}
+
+/* media */
+@media (max-width: 51.25rem) {
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+}
+
+@media (max-width: 20rem) {
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .container {
+    width: 14.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem;
+  }
+
+  img {
+    max-width: 12.5rem;
+  }
+
+  .accordion--item__input:checked ~ .accordion--item__content {
+    height: 14rem;
+  }
+}
